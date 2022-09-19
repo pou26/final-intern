@@ -61,7 +61,7 @@ const getcollegeIntern = async function (req, res) {
       intern: internDetails,
     };
 
-    return res.status(200).send({ data: internsOf_a_College });
+    return res.status(200).send({ status: true, data: internsOf_a_College });
   } catch (error) {
     return res.status(500).send({ msg: error.message });
   }
