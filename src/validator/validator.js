@@ -83,14 +83,12 @@ const collegeValidation = async function (req, res, next) {
 ////////////////////////////////////////////////////    Intern Validation      ////////////////////////////////////////////////////////////////////////
 
 const internValidation = async function (req, res, next) {
-  let internDetails = req.body;
-  let { name, mobile, email, collegeName, ...rest } = { ...internDetails };
+  res.setHeader('Access-Control-Allow-Origin','*')
 
-  if (Object.keys(rest) != 0)
-    return res.status(404).send({
-      status: false,
-      msg: "Please provide required details only => name, mobile, email & collegeName",
-    });
+  let internDetails = req.body;
+  let { name, mobile, email, collegeName } = { ...internDetails };
+
+
   if (Object.keys(internDetails) == 0)
     return res
       .status(404)
